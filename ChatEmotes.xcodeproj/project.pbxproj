@@ -1,0 +1,594 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		17682589B9F0034543307FCA /* Pods_ChatEmotes_MessagesExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841B1DF201E0A2BE38494D0C /* Pods_ChatEmotes_MessagesExtension.framework */; };
+		836799AB29735B6A009818A8 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836799AA29735B6A009818A8 /* Service.swift */; };
+		836799AC29735F5B009818A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83C30F5F297356180034232D /* Assets.xcassets */; };
+		836799AD29735F6F009818A8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83C30F5C297356160034232D /* MainInterface.storyboard */; };
+		83C30F4D297356160034232D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83C30F4C297356160034232D /* Assets.xcassets */; };
+		83C30F53297356160034232D /* ChatEmotes MessagesExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 83C30F52297356160034232D /* ChatEmotes MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		83C30F58297356160034232D /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C30F57297356160034232D /* Messages.framework */; };
+		83C30F5B297356160034232D /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C30F5A297356160034232D /* MessagesViewController.swift */; };
+		83C30F5E297356160034232D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83C30F5C297356160034232D /* MainInterface.storyboard */; };
+		83C30F60297356180034232D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83C30F5F297356180034232D /* Assets.xcassets */; };
+		83F74D732973672E00E02D96 /* peepohappy.webp in Resources */ = {isa = PBXBuildFile; fileRef = 83F74D722973672E00E02D96 /* peepohappy.webp */; };
+		8D015806833191AE75C08416 /* Pods_ChatEmotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451EA56F58E6B11AA994F6E7 /* Pods_ChatEmotes.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		83C30F54297356160034232D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83C30F43297356120034232D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 83C30F51297356160034232D;
+			remoteInfo = "ChatEmotes MessagesExtension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		83C30F67297356180034232D /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				83C30F53297356160034232D /* ChatEmotes MessagesExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		27AC632E99B564E758C8E11F /* Pods-ChatEmotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatEmotes.release.xcconfig"; path = "Target Support Files/Pods-ChatEmotes/Pods-ChatEmotes.release.xcconfig"; sourceTree = "<group>"; };
+		451EA56F58E6B11AA994F6E7 /* Pods_ChatEmotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatEmotes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		622A3B000F627058B142A49E /* Pods-ChatEmotes MessagesExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatEmotes MessagesExtension.release.xcconfig"; path = "Target Support Files/Pods-ChatEmotes MessagesExtension/Pods-ChatEmotes MessagesExtension.release.xcconfig"; sourceTree = "<group>"; };
+		836799AA29735B6A009818A8 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		83C30F49297356130034232D /* ChatEmotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatEmotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		83C30F4C297356160034232D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		83C30F52297356160034232D /* ChatEmotes MessagesExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ChatEmotes MessagesExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		83C30F57297356160034232D /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		83C30F5A297356160034232D /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		83C30F5D297356160034232D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		83C30F5F297356180034232D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		83C30F61297356180034232D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83F74D722973672E00E02D96 /* peepohappy.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = peepohappy.webp; sourceTree = SOURCE_ROOT; };
+		841B1DF201E0A2BE38494D0C /* Pods_ChatEmotes_MessagesExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatEmotes_MessagesExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E8F4445783B465A0FCCD2F6 /* Pods-ChatEmotes MessagesExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatEmotes MessagesExtension.debug.xcconfig"; path = "Target Support Files/Pods-ChatEmotes MessagesExtension/Pods-ChatEmotes MessagesExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		B2A4F08EF595C211DB4FFE98 /* Pods-ChatEmotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatEmotes.debug.xcconfig"; path = "Target Support Files/Pods-ChatEmotes/Pods-ChatEmotes.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		83C30F4F297356160034232D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83C30F58297356160034232D /* Messages.framework in Frameworks */,
+				17682589B9F0034543307FCA /* Pods_ChatEmotes_MessagesExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		979BBCE6D7414A511FC1511E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D015806833191AE75C08416 /* Pods_ChatEmotes.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6230C5A83ABA33CAF4BD4671 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B2A4F08EF595C211DB4FFE98 /* Pods-ChatEmotes.debug.xcconfig */,
+				27AC632E99B564E758C8E11F /* Pods-ChatEmotes.release.xcconfig */,
+				9E8F4445783B465A0FCCD2F6 /* Pods-ChatEmotes MessagesExtension.debug.xcconfig */,
+				622A3B000F627058B142A49E /* Pods-ChatEmotes MessagesExtension.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		83C30F42297356120034232D = {
+			isa = PBXGroup;
+			children = (
+				83C30F4B297356130034232D /* ChatEmotes */,
+				83C30F59297356160034232D /* ChatEmotes MessagesExtension */,
+				83C30F56297356160034232D /* Frameworks */,
+				83C30F4A297356130034232D /* Products */,
+				6230C5A83ABA33CAF4BD4671 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		83C30F4A297356130034232D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83C30F49297356130034232D /* ChatEmotes.app */,
+				83C30F52297356160034232D /* ChatEmotes MessagesExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		83C30F4B297356130034232D /* ChatEmotes */ = {
+			isa = PBXGroup;
+			children = (
+				83C30F4C297356160034232D /* Assets.xcassets */,
+			);
+			path = ChatEmotes;
+			sourceTree = "<group>";
+		};
+		83C30F56297356160034232D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				83C30F57297356160034232D /* Messages.framework */,
+				451EA56F58E6B11AA994F6E7 /* Pods_ChatEmotes.framework */,
+				841B1DF201E0A2BE38494D0C /* Pods_ChatEmotes_MessagesExtension.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		83C30F59297356160034232D /* ChatEmotes MessagesExtension */ = {
+			isa = PBXGroup;
+			children = (
+				83C30F5A297356160034232D /* MessagesViewController.swift */,
+				836799AA29735B6A009818A8 /* Service.swift */,
+				83C30F5C297356160034232D /* MainInterface.storyboard */,
+				83C30F5F297356180034232D /* Assets.xcassets */,
+				83C30F61297356180034232D /* Info.plist */,
+				83F74D722973672E00E02D96 /* peepohappy.webp */,
+			);
+			path = "ChatEmotes MessagesExtension";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		83C30F48297356130034232D /* ChatEmotes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83C30F68297356180034232D /* Build configuration list for PBXNativeTarget "ChatEmotes" */;
+			buildPhases = (
+				4DACE71040FFE4D351E867FC /* [CP] Check Pods Manifest.lock */,
+				83C30F47297356130034232D /* Resources */,
+				83C30F67297356180034232D /* Embed Foundation Extensions */,
+				979BBCE6D7414A511FC1511E /* Frameworks */,
+				B43BD1A238813C82D5BCBB0E /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				83C30F55297356160034232D /* PBXTargetDependency */,
+			);
+			name = ChatEmotes;
+			productName = ChatEmotes;
+			productReference = 83C30F49297356130034232D /* ChatEmotes.app */;
+			productType = "com.apple.product-type.application.messages";
+		};
+		83C30F51297356160034232D /* ChatEmotes MessagesExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83C30F64297356180034232D /* Build configuration list for PBXNativeTarget "ChatEmotes MessagesExtension" */;
+			buildPhases = (
+				D73CF5210DF4967217E8ECCE /* [CP] Check Pods Manifest.lock */,
+				83C30F4E297356160034232D /* Sources */,
+				83C30F4F297356160034232D /* Frameworks */,
+				83C30F50297356160034232D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ChatEmotes MessagesExtension";
+			productName = "ChatEmotes MessagesExtension";
+			productReference = 83C30F52297356160034232D /* ChatEmotes MessagesExtension.appex */;
+			productType = "com.apple.product-type.app-extension.messages";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83C30F43297356120034232D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					83C30F48297356130034232D = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					83C30F51297356160034232D = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 83C30F46297356120034232D /* Build configuration list for PBXProject "ChatEmotes" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 83C30F42297356120034232D;
+			productRefGroup = 83C30F4A297356130034232D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				83C30F48297356130034232D /* ChatEmotes */,
+				83C30F51297356160034232D /* ChatEmotes MessagesExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		83C30F47297356130034232D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				836799AC29735F5B009818A8 /* Assets.xcassets in Resources */,
+				836799AD29735F6F009818A8 /* MainInterface.storyboard in Resources */,
+				83C30F4D297356160034232D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83C30F50297356160034232D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83F74D732973672E00E02D96 /* peepohappy.webp in Resources */,
+				83C30F60297356180034232D /* Assets.xcassets in Resources */,
+				83C30F5E297356160034232D /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4DACE71040FFE4D351E867FC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChatEmotes-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B43BD1A238813C82D5BCBB0E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChatEmotes/Pods-ChatEmotes-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChatEmotes/Pods-ChatEmotes-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChatEmotes/Pods-ChatEmotes-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D73CF5210DF4967217E8ECCE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChatEmotes MessagesExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		83C30F4E297356160034232D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83C30F5B297356160034232D /* MessagesViewController.swift in Sources */,
+				836799AB29735B6A009818A8 /* Service.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		83C30F55297356160034232D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 83C30F51297356160034232D /* ChatEmotes MessagesExtension */;
+			targetProxy = 83C30F54297356160034232D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		83C30F5C297356160034232D /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83C30F5D297356160034232D /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		83C30F62297356180034232D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		83C30F63297356180034232D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		83C30F65297356180034232D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E8F4445783B465A0FCCD2F6 /* Pods-ChatEmotes MessagesExtension.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U7B63H6297;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ChatEmotes MessagesExtension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = ChatEmotes;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rudel.ChatEmotes.MessagesExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		83C30F66297356180034232D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 622A3B000F627058B142A49E /* Pods-ChatEmotes MessagesExtension.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U7B63H6297;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ChatEmotes MessagesExtension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = ChatEmotes;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rudel.ChatEmotes.MessagesExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		83C30F69297356180034232D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2A4F08EF595C211DB4FFE98 /* Pods-ChatEmotes.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U7B63H6297;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rudel.ChatEmotes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		83C30F6A297356180034232D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27AC632E99B564E758C8E11F /* Pods-ChatEmotes.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U7B63H6297;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rudel.ChatEmotes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		83C30F46297356120034232D /* Build configuration list for PBXProject "ChatEmotes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83C30F62297356180034232D /* Debug */,
+				83C30F63297356180034232D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83C30F64297356180034232D /* Build configuration list for PBXNativeTarget "ChatEmotes MessagesExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83C30F65297356180034232D /* Debug */,
+				83C30F66297356180034232D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83C30F68297356180034232D /* Build configuration list for PBXNativeTarget "ChatEmotes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83C30F69297356180034232D /* Debug */,
+				83C30F6A297356180034232D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 83C30F43297356120034232D /* Project object */;
+}
