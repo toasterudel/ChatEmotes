@@ -13,6 +13,8 @@ class MessagesViewController: MSMessagesAppViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        let url = "https://api.frankerfacez.com/v1/emotes?sort=count-desc&per_page=20"
+        getEmotes(from: url)
     }
     
     // MARK: - Conversation Handling
@@ -62,5 +64,80 @@ class MessagesViewController: MSMessagesAppViewController {
     
         // Use this method to finalize any behaviors associated with the change in presentation style.
     }
+    
+    // custom functions:
+    
+    //Call API for bulk emotes:
+    private func getEmotes(from url:String){
+        let task = URLSession.shared.dataTask(with: URL(string:url)!, completionHandler: {
+            data, response, error in
+                guard let data = data, error == nil else{
+                    print("something went wrong")
+                    return
+                }
+            var result: Response?
+            do{
+                result = try JSONDecoder().decode(Response.self, from: data)
+            }catch{
+                print("LOOK HERE CHRIS")
+                print(data)
+                //print("failed to convert \(error.localizedDescription)")
+                print(String(describing: error))
+            }
+            
+            guard let json = result else{
+                return
+            }
+            let emoticons = json.emoticons
+            for emote in emoticons{
+                print("ID: \(emote.id), Name: \(emote.name), Usage: \(emote.usage_count)")
+            }
+            //print(json.emoticons.urls)
+        })
+        task.resume()
+    }
 
 }
+
+struct Response: Codable {
+    let emoticons: [Emoticons]
+}
+struct Emoticons: Codable{
+    let id: Int
+    let name: String
+    //let urls: Dictionary<String, String>
+    let usage_count: Int
+}
+
+
+
+/*
+ {
+   "_pages": 6178,
+   "_total": 308872,
+   "emoticons": [
+     {
+       "id": 128054,
+       "name": "OMEGALUL",
+       "height": 32,
+       "width": 31,
+       "public": true,
+       "hidden": false,
+       "modifier": false,
+       "offset": null,
+       "margins": null,
+       "css": null,
+       "owner": { "_id": 40215, "name": "dourgent", "display_name": "DourGent" },
+       "urls": {
+         "1": "//cdn.frankerfacez.com/emote/128054/1",
+         "2": "//cdn.frankerfacez.com/emote/128054/2",
+         "4": "//cdn.frankerfacez.com/emote/128054/4"
+       },
+       "status": 1,
+       "usage_count": 205425,
+       "created_at": "2016-09-10T21:18:46.045Z",
+       "last_updated": "2016-09-11T01:11:24.046Z"
+     }, ...
+    ]
+  }
+ */
