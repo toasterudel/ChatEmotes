@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83F63C4029AAA09700F3BB36 /* KEKW.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F63C3F29AAA09700F3BB36 /* KEKW.png */; };
 		83FB18CC29A6D7A900DFFB98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83FB18CB29A6D7A900DFFB98 /* Assets.xcassets */; };
 		83FB18D229A6D7A900DFFB98 /* ChatEmotes MessagesExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 83FB18D129A6D7A900DFFB98 /* ChatEmotes MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		83FB18D729A6D7A900DFFB98 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FB18D629A6D7A900DFFB98 /* Messages.framework */; };
@@ -40,6 +41,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		83F63C3F29AAA09700F3BB36 /* KEKW.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KEKW.png; sourceTree = "<group>"; };
 		83FB18C829A6D7A600DFFB98 /* ChatEmotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatEmotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83FB18CB29A6D7A900DFFB98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83FB18D129A6D7A900DFFB98 /* ChatEmotes MessagesExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ChatEmotes MessagesExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +102,7 @@
 		83FB18D829A6D7A900DFFB98 /* ChatEmotes MessagesExtension */ = {
 			isa = PBXGroup;
 			children = (
+				83F63C3F29AAA09700F3BB36 /* KEKW.png */,
 				83FB18D929A6D7A900DFFB98 /* MessagesViewController.swift */,
 				83FB18DB29A6D7A900DFFB98 /* MainInterface.storyboard */,
 				83FB18DE29A6D7AB00DFFB98 /* Assets.xcassets */,
@@ -195,6 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83F63C4029AAA09700F3BB36 /* KEKW.png in Resources */,
 				83FB18DF29A6D7AB00DFFB98 /* Assets.xcassets in Resources */,
 				83FB18DD29A6D7A900DFFB98 /* MainInterface.storyboard in Resources */,
 			);

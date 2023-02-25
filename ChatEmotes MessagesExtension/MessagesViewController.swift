@@ -10,6 +10,31 @@ import Messages
 
 class MessagesViewController: MSMessagesAppViewController {
     
+    @IBOutlet weak var helloWorldLbl: UILabel!
+    
+    @IBAction func pressMeBtn(_ sender: Any) {
+        helloWorldLbl.text = "Pressed"
+        
+        let layout = MSMessageTemplateLayout()
+        layout.image = UIImage(named: "KEKW.png")
+        print("assigned image")
+        
+        var message = MSMessage()
+        message.layout = layout
+        print("assigned message")
+        
+//        activeConversation?.insert(message) {error in
+//                print(error.self as Any)
+//            }
+        print("end of function")
+        
+    }
+    
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -90,7 +115,7 @@ class MessagesViewController: MSMessagesAppViewController {
             }
             let emoticons = json.emoticons
             for emote in emoticons{
-                print("ID: \(emote.id), Name: \(emote.name), Usage: \(emote.usage_count)")
+                print("ID: \(emote.id), Name: \(emote.name), Usage: \(emote.usage_count), URL: \(emote.urls.one)")
             }
             //print(json.emoticons.urls)
         })
@@ -99,14 +124,38 @@ class MessagesViewController: MSMessagesAppViewController {
 
 }
 
+extension MessagesViewController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let numColumns: CGFloat = 3
+        let width = collectionView.frame.size.width
+        let insets: CGFloat = 5
+        let spacing: CGFloat = 5
+        return CGSize(width: (width / numColumns) - (insets + spacing), height: (width / numColumns) - (insets + spacing))
+    }
+}
+
+
+
 struct Response: Codable {
     let emoticons: [Emoticons]
 }
 struct Emoticons: Codable{
     let id: Int
     let name: String
-    //let urls: Dictionary<String, String>
+    let urls: URLS
     let usage_count: Int
+}
+struct URLS: Codable{
+    let one: String
+    let two: String?
+    let four: String?
+    
+    enum CodingKeys: String, CodingKey{
+        case one = "1"
+        case two = "2"
+        case four = "4"
+    }
 }
 
 
