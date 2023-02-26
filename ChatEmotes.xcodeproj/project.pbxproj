@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		832DA1C229AAF12E0044519E /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832DA1C029AAF12E0044519E /* MyCollectionViewCell.swift */; };
+		832DA1C329AAF12E0044519E /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 832DA1C129AAF12E0044519E /* MyCollectionViewCell.xib */; };
 		83F63C4029AAA09700F3BB36 /* KEKW.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F63C3F29AAA09700F3BB36 /* KEKW.png */; };
 		83FB18CC29A6D7A900DFFB98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83FB18CB29A6D7A900DFFB98 /* Assets.xcassets */; };
 		83FB18D229A6D7A900DFFB98 /* ChatEmotes MessagesExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 83FB18D129A6D7A900DFFB98 /* ChatEmotes MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -41,6 +43,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		832DA1C029AAF12E0044519E /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
+		832DA1C129AAF12E0044519E /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
 		83F63C3F29AAA09700F3BB36 /* KEKW.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KEKW.png; sourceTree = "<group>"; };
 		83FB18C829A6D7A600DFFB98 /* ChatEmotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatEmotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83FB18CB29A6D7A900DFFB98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 				83FB18DB29A6D7A900DFFB98 /* MainInterface.storyboard */,
 				83FB18DE29A6D7AB00DFFB98 /* Assets.xcassets */,
 				83FB18E029A6D7AB00DFFB98 /* Info.plist */,
+				832DA1C029AAF12E0044519E /* MyCollectionViewCell.swift */,
+				832DA1C129AAF12E0044519E /* MyCollectionViewCell.xib */,
 			);
 			path = "ChatEmotes MessagesExtension";
 			sourceTree = "<group>";
@@ -200,6 +206,7 @@
 			files = (
 				83F63C4029AAA09700F3BB36 /* KEKW.png in Resources */,
 				83FB18DF29A6D7AB00DFFB98 /* Assets.xcassets in Resources */,
+				832DA1C329AAF12E0044519E /* MyCollectionViewCell.xib in Resources */,
 				83FB18DD29A6D7A900DFFB98 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				832DA1C229AAF12E0044519E /* MyCollectionViewCell.swift in Sources */,
 				83FB18DA29A6D7A900DFFB98 /* MessagesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

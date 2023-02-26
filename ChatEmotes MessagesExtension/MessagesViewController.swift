@@ -8,18 +8,19 @@
 import UIKit
 import Messages
 
+let url = URL(string:  "https://api.frankerfacez.com/v1/emotes?sort=count-desc&per_page=66")
+var topEmotes = [Emoticons]()
+
 class MessagesViewController: MSMessagesAppViewController {
     
-    @IBOutlet weak var helloWorldLbl: UILabel!
     
     @IBAction func pressMeBtn(_ sender: Any) {
-        helloWorldLbl.text = "Pressed"
         
         let layout = MSMessageTemplateLayout()
         layout.image = UIImage(named: "KEKW.png")
         print("assigned image")
         
-        var message = MSMessage()
+        let message = MSMessage()
         message.layout = layout
         print("assigned message")
         
@@ -38,8 +39,23 @@ class MessagesViewController: MSMessagesAppViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let url = "https://api.frankerfacez.com/v1/emotes?sort=count-desc&per_page=20"
-        getEmotes(from: url)
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 30, height: 30)
+        collectionView.collectionViewLayout = layout
+        
+        
+        collectionView.register(MyCollectionViewCell.nib(), forCellWithReuseIdentifier: MyCollectionViewCell.identifier)
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        Task.init{
+            let emotes = await getEmotes(from: url!)
+            topEmotes = emotes
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
     }
     
     // MARK: - Conversation Handling
@@ -93,44 +109,76 @@ class MessagesViewController: MSMessagesAppViewController {
     // custom functions:
     
     //Call API for bulk emotes:
-    private func getEmotes(from url:String){
-        let task = URLSession.shared.dataTask(with: URL(string:url)!, completionHandler: {
-            data, response, error in
-                guard let data = data, error == nil else{
-                    print("something went wrong")
-                    return
-                }
-            var result: Response?
-            do{
-                result = try JSONDecoder().decode(Response.self, from: data)
-            }catch{
-                print("LOOK HERE CHRIS")
-                print(data)
-                //print("failed to convert \(error.localizedDescription)")
-                print(String(describing: error))
-            }
-            
-            guard let json = result else{
-                return
-            }
-            let emoticons = json.emoticons
-            for emote in emoticons{
-                print("ID: \(emote.id), Name: \(emote.name), Usage: \(emote.usage_count), URL: \(emote.urls.one)")
-            }
-            //print(json.emoticons.urls)
-        })
-        task.resume()
+    private func getEmotes(from url:URL) async -> [Emoticons]{
+        do{
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let res = try JSONDecoder().decode(Response.self, from: data)
+            let emotes = res.emoticons
+            return emotes
+        }catch{
+            return []
+        }
     }
+    
+//    private func getImage(from url:URL) async -> UIImage{
+//        do{
+//            let session = URLSession(configuration: .default)
+//            let task = try await session.dataTask(with: url)
+//            print(task)
+//            return UIImage()
+//        }catch{
+//            return UIImage()
+//        }
+//    }
 
 }
+
+extension MessagesViewController: UICollectionViewDelegate{
+    
+    //func is called whenever a cell is tapped within the collectionView
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        print("You tapped me")
+    }
+}
+
+extension MessagesViewController: UICollectionViewDataSource{
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if(topEmotes.isEmpty){
+            return 0
+        } else {return 66}
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if(topEmotes.isEmpty){
+            return UICollectionViewCell()
+        }
+        var cell =  UICollectionViewCell()
+        var link = topEmotes[indexPath.row].urls.one
+        link = String(link.dropFirst(2))
+        //print(link)
+        link = "https://" + link
+        
+        if let imageCell = collectionView.dequeueReusableCell(withReuseIdentifier: MyCollectionViewCell.identifier, for: indexPath) as? MyCollectionViewCell{
+            
+            imageCell.configure(with: link)
+            cell = imageCell
+        }
+        
+        return cell
+    }
+}
+
 
 extension MessagesViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let numColumns: CGFloat = 3
+        let numColumns: CGFloat = 5
         let width = collectionView.frame.size.width
-        let insets: CGFloat = 5
-        let spacing: CGFloat = 5
+        let insets: CGFloat = 15
+        let spacing: CGFloat = 15
         return CGSize(width: (width / numColumns) - (insets + spacing), height: (width / numColumns) - (insets + spacing))
     }
 }
