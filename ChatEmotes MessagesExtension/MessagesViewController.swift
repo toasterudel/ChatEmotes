@@ -126,6 +126,7 @@ extension MessagesViewController: UICollectionViewDelegate{
         let cell = collectionView.cellForItem(at: indexPath) as? MyCollectionViewCell
         
         let image = cell?.imageView.image
+        //let image = bigImage?.resize(to: CGSize(width: 128, height: 128))
         
         //print("row: \(indexPath.row), section: \(indexPath.section), collectionview: \(String(describing: cell)), image: \(String(describing: image))")
         
@@ -133,32 +134,51 @@ extension MessagesViewController: UICollectionViewDelegate{
             print("conversation failed")
             return
         }
+        let tempDir = NSTemporaryDirectory()
+        let tempURL = NSURL(fileURLWithPath: tempDir).appendingPathComponent("sticker.png")!
+        guard let stickerData = image?.pngData(), (try? stickerData.write(to: tempURL, options: [.atomic])) != nil else{
+            print("Failed to create temporary sticker file")
+            return
+        }
+        do {
+            let sticker = try MSSticker(contentsOfFileURL: tempURL, localizedDescription: "")
+            conversation.insert(sticker) {error in
+                if let error = error{
+                    print("error sending message: \(String(describing: error))")
+                }
+            }
+            return
+        } catch {
+            print("Failed to create MSSticker from temporary file: \(error)")
+            return
+        }
         
-        var emoteString = topEmotes[indexPath.row].urls.four ?? topEmotes[indexPath.row].urls.two ?? topEmotes[indexPath.row].urls.one
-        emoteString = String(emoteString.dropFirst(2))
-        emoteString = "https://" + emoteString
+//        var emoteString = topEmotes[indexPath.row].urls.four ?? topEmotes[indexPath.row].urls.two ?? topEmotes[indexPath.row].urls.one
+//        emoteString = String(emoteString.dropFirst(2))
+//        emoteString = "https://" + emoteString
 
-        let emoteURL = URL(string: emoteString)
-
-        print(emoteString)
-        let layout = MSMessageTemplateLayout()
-        layout.image = UIImage(data: (image?.pngData())!)
+        //let emoteURL = URL(string: emoteString)
+        //print(emoteString)
+        
+//        let layout = MSMessageTemplateLayout()
+//        layout.image = image
+        
         //print(String(describing: layout.image?.size))
         //print(layout.image?.hasAlpha)
         //layout.mediaFileURL = emoteURL
-        layout.imageTitle = ""
-        let message = MSMessage()
-        message.layout = layout
+//        layout.imageTitle = ""
+//        let message = MSMessage()
+//        message.layout = layout
         //the following two lines of code makes the message have a transparent background
-        message.shouldExpire = true
-        message.accessibilityLabel = "Transparent bubble"
+//        message.shouldExpire = true
+//        message.accessibilityLabel = "Transparent bubble"
         //print("assigned message")
         //conversation.sendAttachment(<#T##URL: URL##URL#>, withAlternateFilename: <#T##String?#>)
-        conversation.insert(message) {error in
-            if let error = error{
-                print("error sending message: \(String(describing: error))")
-            }
-        }
+//        conversation.insert(message) {error in
+//            if let error = error{
+//                print("error sending message: \(String(describing: error))")
+//            }
+//        }
     }
 }
 
@@ -175,7 +195,7 @@ extension MessagesViewController: UICollectionViewDataSource{
             return UICollectionViewCell()
         }
         var cell =  UICollectionViewCell()
-        var link = topEmotes[indexPath.row].urls.four ?? topEmotes[indexPath.row].urls.two ?? topEmotes[indexPath.row].urls.one
+        var link = topEmotes[indexPath.row].urls.two ?? topEmotes[indexPath.row].urls.one
         link = String(link.dropFirst(2))
         //print(link)
         link = "https://" + link
@@ -203,12 +223,12 @@ extension MessagesViewController: UICollectionViewDelegateFlowLayout{
 }
 
 extension UIImage {
-    var hasAlpha: Bool {
-        guard let alphaInfo = self.cgImage?.alphaInfo else {return false}
-        return alphaInfo != CGImageAlphaInfo.none &&
-            alphaInfo != CGImageAlphaInfo.noneSkipFirst &&
-            alphaInfo != CGImageAlphaInfo.noneSkipLast
-    }
+    func resize(to newSize: CGSize) -> UIImage? {
+            UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+            defer { UIGraphicsEndImageContext() }
+            self.draw(in: CGRect(origin: CGPoint.zero, size: newSize))
+            return UIGraphicsGetImageFromCurrentImageContext()
+        }
 }
 
 
