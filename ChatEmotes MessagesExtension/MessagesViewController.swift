@@ -13,27 +13,11 @@ var topEmotes = [Emoticons]()
 
 class MessagesViewController: MSMessagesAppViewController {
     
-    
-    @IBAction func pressMeBtn(_ sender: Any) {
-        
-        let layout = MSMessageTemplateLayout()
-        layout.image = UIImage(named: "KEKW.png")
-        print("assigned image")
-        
-        let message = MSMessage()
-        message.layout = layout
-        print("assigned message")
-        
-//        activeConversation?.insert(message) {error in
-//                print(error.self as Any)
-//            }
-        print("end of function")
-        
-    }
-    
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBAction func textField(_ sender: Any) {
+        print("ended editing")
+    }
     
     
     override func viewDidLoad() {
@@ -139,7 +123,42 @@ extension MessagesViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
-        print("You tapped me")
+        let cell = collectionView.cellForItem(at: indexPath) as? MyCollectionViewCell
+        
+        let image = cell?.imageView.image
+        
+        //print("row: \(indexPath.row), section: \(indexPath.section), collectionview: \(String(describing: cell)), image: \(String(describing: image))")
+        
+        guard let conversation = activeConversation else{
+            print("conversation failed")
+            return
+        }
+        
+        var emoteString = topEmotes[indexPath.row].urls.four ?? topEmotes[indexPath.row].urls.two ?? topEmotes[indexPath.row].urls.one
+        emoteString = String(emoteString.dropFirst(2))
+        emoteString = "https://" + emoteString
+
+        let emoteURL = URL(string: emoteString)
+
+        print(emoteString)
+        let layout = MSMessageTemplateLayout()
+        layout.image = UIImage(data: (image?.pngData())!)
+        //print(String(describing: layout.image?.size))
+        //print(layout.image?.hasAlpha)
+        //layout.mediaFileURL = emoteURL
+        layout.imageTitle = ""
+        let message = MSMessage()
+        message.layout = layout
+        //the following two lines of code makes the message have a transparent background
+        message.shouldExpire = true
+        message.accessibilityLabel = "Transparent bubble"
+        //print("assigned message")
+        //conversation.sendAttachment(<#T##URL: URL##URL#>, withAlternateFilename: <#T##String?#>)
+        conversation.insert(message) {error in
+            if let error = error{
+                print("error sending message: \(String(describing: error))")
+            }
+        }
     }
 }
 
@@ -156,7 +175,7 @@ extension MessagesViewController: UICollectionViewDataSource{
             return UICollectionViewCell()
         }
         var cell =  UICollectionViewCell()
-        var link = topEmotes[indexPath.row].urls.one
+        var link = topEmotes[indexPath.row].urls.four ?? topEmotes[indexPath.row].urls.two ?? topEmotes[indexPath.row].urls.one
         link = String(link.dropFirst(2))
         //print(link)
         link = "https://" + link
@@ -177,9 +196,18 @@ extension MessagesViewController: UICollectionViewDelegateFlowLayout{
 
         let numColumns: CGFloat = 5
         let width = collectionView.frame.size.width
-        let insets: CGFloat = 15
-        let spacing: CGFloat = 15
+        let insets: CGFloat = 5
+        let spacing: CGFloat = 5
         return CGSize(width: (width / numColumns) - (insets + spacing), height: (width / numColumns) - (insets + spacing))
+    }
+}
+
+extension UIImage {
+    var hasAlpha: Bool {
+        guard let alphaInfo = self.cgImage?.alphaInfo else {return false}
+        return alphaInfo != CGImageAlphaInfo.none &&
+            alphaInfo != CGImageAlphaInfo.noneSkipFirst &&
+            alphaInfo != CGImageAlphaInfo.noneSkipLast
     }
 }
 

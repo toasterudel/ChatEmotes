@@ -35,6 +35,7 @@ class MyCollectionViewCell: UICollectionViewCell {
                     return
                 }
                 DispatchQueue.main.async {
+                    //print(String(describing: data!))
                     let image = UIImage(data: data!)
                     self.imageView.image = image
                 }
