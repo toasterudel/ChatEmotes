@@ -49,13 +49,14 @@
                         <viewLayoutGuide key="safeArea" id="LDy-ih-0nr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="8lm-Em-Sbx" firstAttribute="trailing" secondItem="LDy-ih-0nr" secondAttribute="trailing" identifier="TrailingCollectionView" id="4zY-Hq-Mg2"/>
-                            <constraint firstItem="8lm-Em-Sbx" firstAttribute="leading" secondItem="LDy-ih-0nr" secondAttribute="leading" identifier="leadingCollectionView" id="6Xv-q5-aVf"/>
-                            <constraint firstItem="8lm-Em-Sbx" firstAttribute="top" secondItem="nlS-t4-yX9" secondAttribute="bottom" identifier="topCollectionView" id="7PR-ax-1zD"/>
-                            <constraint firstItem="nlS-t4-yX9" firstAttribute="leading" secondItem="LDy-ih-0nr" secondAttribute="leading" constant="16" identifier="LeadingUITextField" id="HZu-Mq-zzb"/>
-                            <constraint firstItem="nlS-t4-yX9" firstAttribute="top" secondItem="LDy-ih-0nr" secondAttribute="top" constant="1" identifier="TopUITextField" id="J3C-qw-njj"/>
-                            <constraint firstItem="LDy-ih-0nr" firstAttribute="trailing" secondItem="nlS-t4-yX9" secondAttribute="trailing" constant="16" identifier="TrailingUITextField" id="bSU-wE-Lp5"/>
-                            <constraint firstItem="8lm-Em-Sbx" firstAttribute="bottom" secondItem="LDy-ih-0nr" secondAttribute="bottom" identifier="bottomCollectionView" id="ip5-r4-apR"/>
+                            <constraint firstItem="nlS-t4-yX9" firstAttribute="leading" secondItem="LDy-ih-0nr" secondAttribute="leading" constant="16" id="5tg-Td-Msr"/>
+                            <constraint firstItem="nlS-t4-yX9" firstAttribute="top" secondItem="LDy-ih-0nr" secondAttribute="top" constant="1" id="K23-L0-Zie"/>
+                            <constraint firstItem="8lm-Em-Sbx" firstAttribute="top" secondItem="nlS-t4-yX9" secondAttribute="bottom" id="P8n-vk-g4l"/>
+                            <constraint firstItem="8lm-Em-Sbx" firstAttribute="trailing" secondItem="LDy-ih-0nr" secondAttribute="trailing" id="StC-Uy-dhZ"/>
+                            <constraint firstItem="8lm-Em-Sbx" firstAttribute="leading" secondItem="LDy-ih-0nr" secondAttribute="leading" id="mHQ-g2-c9f"/>
+                            <constraint firstItem="LDy-ih-0nr" firstAttribute="trailing" secondItem="nlS-t4-yX9" secondAttribute="trailing" constant="16" id="mg9-zf-s8P"/>
+                            <constraint firstItem="8lm-Em-Sbx" firstAttribute="top" secondItem="nlS-t4-yX9" secondAttribute="bottom" id="oax-MV-lma"/>
+                            <constraint firstItem="8lm-Em-Sbx" firstAttribute="bottom" secondItem="LDy-ih-0nr" secondAttribute="bottom" id="yU3-p3-cIb"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

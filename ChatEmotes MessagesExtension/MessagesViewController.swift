@@ -8,10 +8,12 @@
 import UIKit
 import Messages
 
-let url = URL(string:  "https://api.frankerfacez.com/v1/emotes?sort=count-desc&per_page=66")
-var topEmotes = [Emoticons]()
+//  Would like to keep the API URL and Key private, storing them in env variables
+let url = URL(string:  ProcessInfo.processInfo.environment["API_URL"]! + ProcessInfo.processInfo.environment["API_KEY"]!)
+var topEmotes = [Emote]()
 
 class MessagesViewController: MSMessagesAppViewController {
+    
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -36,6 +38,9 @@ class MessagesViewController: MSMessagesAppViewController {
         Task.init{
             let emotes = await getEmotes(from: url!)
             topEmotes = emotes
+            for emote in topEmotes {
+                print(emote)
+            }
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
@@ -93,12 +98,12 @@ class MessagesViewController: MSMessagesAppViewController {
     // custom functions:
     
     //Call API for bulk emotes:
-    private func getEmotes(from url:URL) async -> [Emoticons]{
+    private func getEmotes(from url:URL) async -> [Emote]{
         do{
             let (data, _) = try await URLSession.shared.data(from: url)
-            let res = try JSONDecoder().decode(Response.self, from: data)
-            let emotes = res.emoticons
-            return emotes
+            let res = try JSONDecoder().decode([Emote].self, from: data)
+            //print(emotes)
+            return res
         }catch{
             return []
         }
@@ -147,38 +152,13 @@ extension MessagesViewController: UICollectionViewDelegate{
                     print("error sending message: \(String(describing: error))")
                 }
             }
+            self.requestPresentationStyle(.compact)
             return
         } catch {
             print("Failed to create MSSticker from temporary file: \(error)")
             return
         }
         
-//        var emoteString = topEmotes[indexPath.row].urls.four ?? topEmotes[indexPath.row].urls.two ?? topEmotes[indexPath.row].urls.one
-//        emoteString = String(emoteString.dropFirst(2))
-//        emoteString = "https://" + emoteString
-
-        //let emoteURL = URL(string: emoteString)
-        //print(emoteString)
-        
-//        let layout = MSMessageTemplateLayout()
-//        layout.image = image
-        
-        //print(String(describing: layout.image?.size))
-        //print(layout.image?.hasAlpha)
-        //layout.mediaFileURL = emoteURL
-//        layout.imageTitle = ""
-//        let message = MSMessage()
-//        message.layout = layout
-        //the following two lines of code makes the message have a transparent background
-//        message.shouldExpire = true
-//        message.accessibilityLabel = "Transparent bubble"
-        //print("assigned message")
-        //conversation.sendAttachment(<#T##URL: URL##URL#>, withAlternateFilename: <#T##String?#>)
-//        conversation.insert(message) {error in
-//            if let error = error{
-//                print("error sending message: \(String(describing: error))")
-//            }
-//        }
     }
 }
 
@@ -187,7 +167,7 @@ extension MessagesViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if(topEmotes.isEmpty){
             return 0
-        } else {return 66}
+        } else {return 65}
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -195,10 +175,9 @@ extension MessagesViewController: UICollectionViewDataSource{
             return UICollectionViewCell()
         }
         var cell =  UICollectionViewCell()
-        var link = topEmotes[indexPath.row].urls.two ?? topEmotes[indexPath.row].urls.one
-        link = String(link.dropFirst(2))
-        //print(link)
-        link = "https://" + link
+        let link = topEmotes[indexPath.row].urls.two ?? topEmotes[indexPath.row].urls.one
+//        print("CHRIS HERE LINK")
+//        print(link)
         
         if let imageCell = collectionView.dequeueReusableCell(withReuseIdentifier: MyCollectionViewCell.identifier, for: indexPath) as? MyCollectionViewCell{
             
@@ -233,20 +212,17 @@ extension UIImage {
 
 
 
-struct Response: Codable {
-    let emoticons: [Emoticons]
-}
-struct Emoticons: Codable{
-    let id: Int
+struct Emote: Codable{
     let name: String
-    let urls: URLS
+    let id: Int
     let usage_count: Int
+    let urls: URLS
 }
 struct URLS: Codable{
     let one: String
     let two: String?
     let four: String?
-    
+
     enum CodingKeys: String, CodingKey{
         case one = "1"
         case two = "2"
@@ -257,32 +233,27 @@ struct URLS: Codable{
 
 
 /*
- {
-   "_pages": 6178,
-   "_total": 308872,
-   "emoticons": [
+ [
      {
-       "id": 128054,
-       "name": "OMEGALUL",
-       "height": 32,
-       "width": 31,
-       "public": true,
-       "hidden": false,
-       "modifier": false,
-       "offset": null,
-       "margins": null,
-       "css": null,
-       "owner": { "_id": 40215, "name": "dourgent", "display_name": "DourGent" },
-       "urls": {
-         "1": "//cdn.frankerfacez.com/emote/128054/1",
-         "2": "//cdn.frankerfacez.com/emote/128054/2",
-         "4": "//cdn.frankerfacez.com/emote/128054/4"
-       },
-       "status": 1,
-       "usage_count": 205425,
-       "created_at": "2016-09-10T21:18:46.045Z",
-       "last_updated": "2016-09-11T01:11:24.046Z"
-     }, ...
-    ]
-  }
+         "name": "OMEGALUL",
+         "id": 128054,
+         "usage_count": 206308,
+         "urls": {
+             "1": "https://cdn.frankerfacez.com/emote/128054/1",
+             "2": "https://cdn.frankerfacez.com/emote/128054/2",
+             "4": "https://cdn.frankerfacez.com/emote/128054/4"
+         }
+     },
+     {
+         "name": "Pog",
+         "id": 210748,
+         "usage_count": 189280,
+         "urls": {
+             "1": "https://cdn.frankerfacez.com/emote/210748/1",
+             "2": "https://cdn.frankerfacez.com/emote/210748/2",
+             "4": "https://cdn.frankerfacez.com/emote/210748/4"
+         }
+    },
+ ...
+ ]
  */
