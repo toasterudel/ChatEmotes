@@ -11,11 +11,13 @@
       "size" : "29x29"
     },
     {
+      "filename" : "froge1.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x45"
     },
     {
+      "filename" : "froge2.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x45"

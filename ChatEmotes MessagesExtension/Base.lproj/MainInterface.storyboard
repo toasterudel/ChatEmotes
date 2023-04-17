@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8lm-Em-Sbx">
+                            <collectionView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8lm-Em-Sbx">
                                 <rect key="frame" x="0.0" y="94" width="320" height="434"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UHw-ec-5zI">
@@ -27,7 +27,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MyCollectionViewCell" id="3uE-tM-u87">
+                                    <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MyCollectionViewCell" id="3uE-tM-u87">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="H15-qC-Ifb">
@@ -52,11 +52,10 @@
                         <constraints>
                             <constraint firstItem="nlS-t4-yX9" firstAttribute="leading" secondItem="LDy-ih-0nr" secondAttribute="leading" constant="16" id="5tg-Td-Msr"/>
                             <constraint firstItem="nlS-t4-yX9" firstAttribute="top" secondItem="LDy-ih-0nr" secondAttribute="top" constant="1" id="K23-L0-Zie"/>
-                            <constraint firstItem="8lm-Em-Sbx" firstAttribute="top" secondItem="nlS-t4-yX9" secondAttribute="bottom" id="P8n-vk-g4l"/>
                             <constraint firstItem="8lm-Em-Sbx" firstAttribute="trailing" secondItem="LDy-ih-0nr" secondAttribute="trailing" id="StC-Uy-dhZ"/>
+                            <constraint firstItem="8lm-Em-Sbx" firstAttribute="top" secondItem="nlS-t4-yX9" secondAttribute="bottom" id="dnu-C6-WVP"/>
                             <constraint firstItem="8lm-Em-Sbx" firstAttribute="leading" secondItem="LDy-ih-0nr" secondAttribute="leading" id="mHQ-g2-c9f"/>
                             <constraint firstItem="LDy-ih-0nr" firstAttribute="trailing" secondItem="nlS-t4-yX9" secondAttribute="trailing" constant="16" id="mg9-zf-s8P"/>
-                            <constraint firstItem="8lm-Em-Sbx" firstAttribute="top" secondItem="nlS-t4-yX9" secondAttribute="bottom" id="oax-MV-lma"/>
                             <constraint firstItem="8lm-Em-Sbx" firstAttribute="bottom" secondItem="LDy-ih-0nr" secondAttribute="bottom" id="yU3-p3-cIb"/>
                         </constraints>
                     </view>

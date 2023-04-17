@@ -21,7 +21,7 @@ class MessagesViewController: MSMessagesAppViewController {
     @IBOutlet weak var textField: UITextField!
     
     @IBAction func textFieldBegin(_ sender: UITextField) {
-        print("begin")
+        //print("begin")
         if( self.presentationStyle == .compact){
             self.requestPresentationStyle(.expanded)
             //  Need to wait for presentation style to change to expanded
@@ -32,9 +32,9 @@ class MessagesViewController: MSMessagesAppViewController {
         }
     }
     @IBAction func searchSent(_ sender: UITextField) {
-        print("Text: \(textField.text ?? "")")
+        //print("Text: \(textField.text ?? "")")
         textField.resignFirstResponder()
-        print(topEmotes.count)
+        //print(topEmotes.count)
         topEmotes = findEmotes(searchString: textField.text ?? "")
         DispatchQueue.main.async {
             self.collectionView.reloadData()
@@ -54,7 +54,7 @@ class MessagesViewController: MSMessagesAppViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        Task.init{
+        Task{
             let emotes = await getEmotes(from: url!)
             topEmotes = emotes
             DispatchQueue.main.async {
@@ -308,14 +308,6 @@ extension MessagesViewController: UICollectionViewDelegateFlowLayout{
     }
 }
 
-//extension UIImage {
-//    func resize(to newSize: CGSize) -> UIImage? {
-//            UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
-//            defer { UIGraphicsEndImageContext() }
-//            self.draw(in: CGRect(origin: CGPoint.zero, size: newSize))
-//            return UIGraphicsGetImageFromCurrentImageContext()
-//        }
-//}
 
 
 
