@@ -7,20 +7,39 @@
 
 import UIKit
 import Messages
+import CoreData
 
 //  Would like to keep the API URL and Key private, storing them in env variables
 let url = URL(string:  ProcessInfo.processInfo.environment["API_URL"]! + ProcessInfo.processInfo.environment["API_KEY"]!)
 var topEmotes = [Emote]()
 
 class MessagesViewController: MSMessagesAppViewController {
-    
+    lazy var context = persistentContainer.viewContext
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBAction func textField(_ sender: Any) {
-        print("ended editing")
-    }
+    @IBOutlet weak var textField: UITextField!
     
+    @IBAction func textFieldBegin(_ sender: UITextField) {
+        print("begin")
+        if( self.presentationStyle == .compact){
+            self.requestPresentationStyle(.expanded)
+            //  Need to wait for presentation style to change to expanded
+            //  Don't know if there is a better wait to await for animation to end
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                self.textField.becomeFirstResponder()
+            })
+        }
+    }
+    @IBAction func searchSent(_ sender: UITextField) {
+        print("Text: \(textField.text ?? "")")
+        textField.resignFirstResponder()
+        print(topEmotes.count)
+        topEmotes = findEmotes(searchString: textField.text ?? "")
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +57,6 @@ class MessagesViewController: MSMessagesAppViewController {
         Task.init{
             let emotes = await getEmotes(from: url!)
             topEmotes = emotes
-            for emote in topEmotes {
-                print(emote)
-            }
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
@@ -99,27 +115,120 @@ class MessagesViewController: MSMessagesAppViewController {
     
     //Call API for bulk emotes:
     private func getEmotes(from url:URL) async -> [Emote]{
+        //todo: Check if data exists from past 24 hours.
+        //      yes -> do not call url and populate with existing data
+        //      no ->  call url and populate with data from url
+        //      https://youtu.be/gWurhFqTsPU
+        
         do{
+            let fet = try context.fetch(APIData.fetchRequest())
+            if(fet.count > 0){
+                let currentDateTime = Date()
+                print("Date difference: \(currentDateTime.timeIntervalSince(fet[0].date!)), num needed: \(24*60*60)")
+                print("length of fetch: \(fet.count)")
+                //print("printing fetch:")
+                //print(fet[0].data ?? "")
+                if(currentDateTime.timeIntervalSince(fet[0].date!) < 24 * 60 * 60){
+                    print("Data is relatively fresh")
+                    let dataStr = fet[0].data
+                    let res = try JSONDecoder().decode([Emote].self, from: (dataStr?.data(using: .utf8))!)
+                    return res
+                }else{
+                    print("Data is not fresh")
+                    context.delete(fet[0])
+                    saveContext()
+                }
+            }
+            
+        }catch{
+            print("Error retrieving data: \(error)")
+        }
+        
+        do{
+            print("calling api")
             let (data, _) = try await URLSession.shared.data(from: url)
+            let decodedData = String(decoding: data, as: UTF8.self)
             let res = try JSONDecoder().decode([Emote].self, from: data)
-            //print(emotes)
+            
+            // Save the api data to Core Data. APIData takes in data as String and date as Date
+            let newData = APIData(context: self.context)
+            newData.data = decodedData
+            newData.date = Date()
+            
+            saveContext()
+            
             return res
         }catch{
             return []
         }
     }
     
-//    private func getImage(from url:URL) async -> UIImage{
-//        do{
-//            let session = URLSession(configuration: .default)
-//            let task = try await session.dataTask(with: url)
-//            print(task)
-//            return UIImage()
-//        }catch{
-//            return UIImage()
+    private func saveContext() {
+        if context.hasChanges{
+            do{
+                try context.save()
+            }catch{
+                print("an error occured while saving: \(error)")
+            }
+        }
+    }
+    
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "APIData")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error ) in
+            if let error = error as NSError?{
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }()
+    
+    private func findEmotes(searchString: String) -> [Emote] {
+        if(searchString == ""){
+            print("blank search string")
+        }
+        
+        let sortedEmotes = topEmotes.sorted { (p1, p2) -> Bool in
+            let distance1 = levenshteinDistance(s1: p1.name.lowercased(), s2: searchString.lowercased())
+            let distance2 = levenshteinDistance(s1: p2.name.lowercased(), s2: searchString.lowercased())
+            return distance1 < distance2
+        }
+//        for emote in sortedEmotes{
+//            print(emote.name)
 //        }
-//    }
-
+        
+        return sortedEmotes
+    }
+    
+    private func levenshteinDistance(s1: String, s2: String) -> Int {
+        let m = s1.count
+        let n = s2.count
+        
+        if m == 0 {
+            return n
+        }
+        if n == 0 {
+            return m
+        }
+        var matrix = [[Int]](repeating: [Int](repeating: 0, count: n + 1), count: m + 1)
+        for i in 0...m {
+            matrix[i][0] = i
+        }
+        for j in 0...n {
+            matrix[0][j] = j
+        }
+        for i in 1...m {
+            for j in 1...n {
+                if s1[s1.index(s1.startIndex, offsetBy: i - 1)] == s2[s2.index(s2.startIndex, offsetBy: j - 1)] {
+                    matrix[i][j] = matrix[i-1][j-1]
+                } else {
+                    matrix[i][j] = min(matrix[i-1][j], matrix[i][j-1], matrix[i-1][j-1]) + 1
+                }
+            }
+        }
+        return matrix[m][n]
+    }
 }
 
 extension MessagesViewController: UICollectionViewDelegate{
@@ -176,8 +285,6 @@ extension MessagesViewController: UICollectionViewDataSource{
         }
         var cell =  UICollectionViewCell()
         let link = topEmotes[indexPath.row].urls.two ?? topEmotes[indexPath.row].urls.one
-//        print("CHRIS HERE LINK")
-//        print(link)
         
         if let imageCell = collectionView.dequeueReusableCell(withReuseIdentifier: MyCollectionViewCell.identifier, for: indexPath) as? MyCollectionViewCell{
             
@@ -201,14 +308,14 @@ extension MessagesViewController: UICollectionViewDelegateFlowLayout{
     }
 }
 
-extension UIImage {
-    func resize(to newSize: CGSize) -> UIImage? {
-            UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
-            defer { UIGraphicsEndImageContext() }
-            self.draw(in: CGRect(origin: CGPoint.zero, size: newSize))
-            return UIGraphicsGetImageFromCurrentImageContext()
-        }
-}
+//extension UIImage {
+//    func resize(to newSize: CGSize) -> UIImage? {
+//            UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+//            defer { UIGraphicsEndImageContext() }
+//            self.draw(in: CGRect(origin: CGPoint.zero, size: newSize))
+//            return UIGraphicsGetImageFromCurrentImageContext()
+//        }
+//}
 
 
 
