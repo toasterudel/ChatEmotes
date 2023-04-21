@@ -47,6 +47,7 @@
 /* Begin PBXFileReference section */
 		832DA1C029AAF12E0044519E /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		832DA1C129AAF12E0044519E /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
+		833FAE6D29F32E5D0073F9C7 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		83F48A0A29EBD3EC00ACC6B9 /* APIData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = APIData.xcdatamodel; sourceTree = "<group>"; };
 		83F48A0C29EBD44000ACC6B9 /* APIData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIData+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		83F48A0D29EBD44000ACC6B9 /* APIData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIData+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
@@ -113,6 +114,7 @@
 				83F48A0C29EBD44000ACC6B9 /* APIData+CoreDataClass.swift */,
 				83F48A0D29EBD44000ACC6B9 /* APIData+CoreDataProperties.swift */,
 				83FB18D929A6D7A900DFFB98 /* MessagesViewController.swift */,
+				833FAE6D29F32E5D0073F9C7 /* Secrets.xcconfig */,
 				83FB18DB29A6D7A900DFFB98 /* MainInterface.storyboard */,
 				83FB18DE29A6D7AB00DFFB98 /* Assets.xcassets */,
 				83FB18E029A6D7AB00DFFB98 /* Info.plist */,
@@ -255,6 +257,7 @@
 /* Begin XCBuildConfiguration section */
 		83FB18E129A6D7AB00DFFB98 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 833FAE6D29F32E5D0073F9C7 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -315,6 +318,7 @@
 		};
 		83FB18E229A6D7AB00DFFB98 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 833FAE6D29F32E5D0073F9C7 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -424,6 +428,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U7B63H6297;
@@ -447,6 +452,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U7B63H6297;

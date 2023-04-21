@@ -10,7 +10,10 @@ import Messages
 import CoreData
 
 //  Would like to keep the API URL and Key private, storing them in env variables
-let url = URL(string:  ProcessInfo.processInfo.environment["API_URL"]! + ProcessInfo.processInfo.environment["API_KEY"]!)
+let apiURL = Bundle.main.object(forInfoDictionaryKey: "API_URL") as! String
+let apiKEY = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as! String
+
+let url = URL(string: apiURL + apiKEY)
 var topEmotes = [Emote]()
 
 class MessagesViewController: MSMessagesAppViewController {
@@ -54,13 +57,17 @@ class MessagesViewController: MSMessagesAppViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        Task{
-            let emotes = await getEmotes(from: url!)
+
+        Task.init(operation: {
+            if let url = url {
+                print("URL: \(url)")
+            }
+            let emotes = await self.getEmotes(from: url!)
             topEmotes = emotes
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
-        }
+        })
     }
     
     // MARK: - Conversation Handling
@@ -112,6 +119,18 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     // custom functions:
+    
+    //  Test call api
+    private func testGetEmotes(from url:URL) async -> [Emote]{
+        do{
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let res = try JSONDecoder().decode([Emote].self, from: data)
+            return res
+        }catch{
+            print("error: \(error)")
+            return []
+        }
+    }
     
     //Call API for bulk emotes:
     private func getEmotes(from url:URL) async -> [Emote]{
