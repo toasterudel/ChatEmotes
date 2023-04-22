@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		832DA1C229AAF12E0044519E /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832DA1C029AAF12E0044519E /* MyCollectionViewCell.swift */; };
 		832DA1C329AAF12E0044519E /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 832DA1C129AAF12E0044519E /* MyCollectionViewCell.xib */; };
+		83A97E7829F460E40023E7BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83FB18DE29A6D7AB00DFFB98 /* Assets.xcassets */; };
+		83A97E7929F460EA0023E7BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83FB18CB29A6D7A900DFFB98 /* Assets.xcassets */; };
 		83F48A0B29EBD3EC00ACC6B9 /* APIData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 83F48A0929EBD3EC00ACC6B9 /* APIData.xcdatamodeld */; };
 		83F48A0E29EBD44000ACC6B9 /* APIData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F48A0C29EBD44000ACC6B9 /* APIData+CoreDataClass.swift */; };
 		83F48A0F29EBD44000ACC6B9 /* APIData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F48A0D29EBD44000ACC6B9 /* APIData+CoreDataProperties.swift */; };
@@ -204,6 +206,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83A97E7829F460E40023E7BC /* Assets.xcassets in Resources */,
 				83FB18CC29A6D7A900DFFB98 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,6 +217,7 @@
 			files = (
 				83FB18DF29A6D7AB00DFFB98 /* Assets.xcassets in Resources */,
 				832DA1C329AAF12E0044519E /* MyCollectionViewCell.xib in Resources */,
+				83A97E7929F460EA0023E7BC /* Assets.xcassets in Resources */,
 				83FB18DD29A6D7A900DFFB98 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +264,7 @@
 			baseConfigurationReference = 833FAE6D29F32E5D0073F9C7 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -306,7 +311,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -321,6 +326,7 @@
 			baseConfigurationReference = 833FAE6D29F32E5D0073F9C7 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -361,7 +367,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -375,9 +381,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				ASSETCATALOG_COMPILER_STANDALONE_ICON_BEHAVIOR = default;
+				ASSETCATALOG_COMPILER_TARGET_STICKERS_ICON_ROLE = extension;
+				CODE_SIGN_ENTITLEMENTS = "ChatEmotes MessagesExtension/ChatEmotes MessagesExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U7B63H6297;
+				ENABLE_ON_DEMAND_RESOURCES = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ChatEmotes MessagesExtension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ChatEmotes;
@@ -401,9 +411,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				ASSETCATALOG_COMPILER_STANDALONE_ICON_BEHAVIOR = default;
+				ASSETCATALOG_COMPILER_TARGET_STICKERS_ICON_ROLE = extension;
+				CODE_SIGN_ENTITLEMENTS = "ChatEmotes MessagesExtension/ChatEmotes MessagesExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U7B63H6297;
+				ENABLE_ON_DEMAND_RESOURCES = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ChatEmotes MessagesExtension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ChatEmotes;

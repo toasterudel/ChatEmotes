@@ -9,7 +9,7 @@ import UIKit
 import Messages
 import CoreData
 
-//  Would like to keep the API URL and Key private, storing them in env variables
+//  Would like to keep the API URL and Key private, storing them in config file
 let apiURL = Bundle.main.object(forInfoDictionaryKey: "API_URL") as! String
 let apiKEY = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as! String
 
@@ -120,24 +120,11 @@ class MessagesViewController: MSMessagesAppViewController {
     
     // custom functions:
     
-    //  Test call api
-    private func testGetEmotes(from url:URL) async -> [Emote]{
-        do{
-            let (data, _) = try await URLSession.shared.data(from: url)
-            let res = try JSONDecoder().decode([Emote].self, from: data)
-            return res
-        }catch{
-            print("error: \(error)")
-            return []
-        }
-    }
-    
     //Call API for bulk emotes:
     private func getEmotes(from url:URL) async -> [Emote]{
-        //todo: Check if data exists from past 24 hours.
+        //      Check if data exists from past 24 hours.
         //      yes -> do not call url and populate with existing data
         //      no ->  call url and populate with data from url
-        //      https://youtu.be/gWurhFqTsPU
         
         do{
             let fet = try context.fetch(APIData.fetchRequest())
@@ -192,7 +179,7 @@ class MessagesViewController: MSMessagesAppViewController {
         }
     }
     
-    
+    // This is taken from project with CoreData enabled
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "APIData")
         container.loadPersistentStores(completionHandler: { (storeDescription, error ) in
@@ -213,9 +200,6 @@ class MessagesViewController: MSMessagesAppViewController {
             let distance2 = levenshteinDistance(s1: p2.name.lowercased(), s2: searchString.lowercased())
             return distance1 < distance2
         }
-//        for emote in sortedEmotes{
-//            print(emote.name)
-//        }
         
         return sortedEmotes
     }
