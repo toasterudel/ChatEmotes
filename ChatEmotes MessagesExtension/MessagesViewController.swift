@@ -60,12 +60,12 @@ class MessagesViewController: MSMessagesAppViewController {
 
         Task.init(operation: {
             if let url = url {
-                print("URL: \(url)")
-            }
-            let emotes = await self.getEmotes(from: url!)
-            topEmotes = emotes
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
+                //print("URL: \(url)")
+                let emotes = await self.getEmotes(from: url)
+                topEmotes = emotes
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
             }
         })
     }
@@ -125,7 +125,6 @@ class MessagesViewController: MSMessagesAppViewController {
         //      Check if data exists from past 24 hours.
         //      yes -> do not call url and populate with existing data
         //      no ->  call url and populate with data from url
-        
         do{
             let fet = try context.fetch(APIData.fetchRequest())
             if(fet.count > 0){

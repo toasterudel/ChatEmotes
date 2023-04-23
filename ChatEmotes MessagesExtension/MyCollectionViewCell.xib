@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,9 +25,11 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="ILO-Tu-FPd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8AY-Pn-sdV"/>
+                <constraint firstItem="ILO-Tu-FPd" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Hm8-RL-IDg"/>
                 <constraint firstAttribute="trailing" secondItem="ILO-Tu-FPd" secondAttribute="trailing" id="Qji-v6-HNT"/>
                 <constraint firstAttribute="bottom" secondItem="ILO-Tu-FPd" secondAttribute="bottom" id="XSX-0t-izC"/>
                 <constraint firstItem="ILO-Tu-FPd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="sVx-Ps-3ww"/>
+                <constraint firstItem="ILO-Tu-FPd" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="sYJ-10-hvJ"/>
             </constraints>
             <size key="customSize" width="180" height="176"/>
             <connections>

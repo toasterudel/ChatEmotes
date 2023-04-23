@@ -20,6 +20,7 @@
 		83FB18DA29A6D7A900DFFB98 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FB18D929A6D7A900DFFB98 /* MessagesViewController.swift */; };
 		83FB18DD29A6D7A900DFFB98 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83FB18DB29A6D7A900DFFB98 /* MainInterface.storyboard */; };
 		83FB18DF29A6D7AB00DFFB98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83FB18DE29A6D7AB00DFFB98 /* Assets.xcassets */; };
+		ED0F7EBF29F4AD0500BB04F2 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = ED0F7EBE29F4ABEA00BB04F2 /* Secrets.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,10 +50,9 @@
 /* Begin PBXFileReference section */
 		832DA1C029AAF12E0044519E /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		832DA1C129AAF12E0044519E /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
-		833FAE6D29F32E5D0073F9C7 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		83F48A0A29EBD3EC00ACC6B9 /* APIData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = APIData.xcdatamodel; sourceTree = "<group>"; };
-		83F48A0C29EBD44000ACC6B9 /* APIData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIData+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		83F48A0D29EBD44000ACC6B9 /* APIData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIData+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		83F48A0C29EBD44000ACC6B9 /* APIData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "APIData+CoreDataClass.swift"; path = "ChatEmotes MessagesExtension/APIData+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		83F48A0D29EBD44000ACC6B9 /* APIData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "APIData+CoreDataProperties.swift"; path = "ChatEmotes MessagesExtension/APIData+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		83FB18C829A6D7A600DFFB98 /* ChatEmotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatEmotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83FB18CB29A6D7A900DFFB98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83FB18D129A6D7A900DFFB98 /* ChatEmotes MessagesExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ChatEmotes MessagesExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +61,9 @@
 		83FB18DC29A6D7A900DFFB98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		83FB18DE29A6D7AB00DFFB98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83FB18E029A6D7AB00DFFB98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED0F7EBE29F4ABEA00BB04F2 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		ED0F7EC029F4B2DF00BB04F2 /* ChatEmotes MessagesExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ChatEmotes MessagesExtension.entitlements"; sourceTree = "<group>"; };
+		ED0F7EC129F4B3E500BB04F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,7 @@
 		83FB18CA29A6D7A600DFFB98 /* ChatEmotes */ = {
 			isa = PBXGroup;
 			children = (
+				ED0F7EC129F4B3E500BB04F2 /* Info.plist */,
 				83FB18CB29A6D7A900DFFB98 /* Assets.xcassets */,
 			);
 			path = ChatEmotes;
@@ -113,16 +117,17 @@
 		83FB18D829A6D7A900DFFB98 /* ChatEmotes MessagesExtension */ = {
 			isa = PBXGroup;
 			children = (
+				ED0F7EC029F4B2DF00BB04F2 /* ChatEmotes MessagesExtension.entitlements */,
+				ED0F7EBE29F4ABEA00BB04F2 /* Secrets.xcconfig */,
 				83F48A0C29EBD44000ACC6B9 /* APIData+CoreDataClass.swift */,
 				83F48A0D29EBD44000ACC6B9 /* APIData+CoreDataProperties.swift */,
 				83FB18D929A6D7A900DFFB98 /* MessagesViewController.swift */,
-				833FAE6D29F32E5D0073F9C7 /* Secrets.xcconfig */,
+				832DA1C029AAF12E0044519E /* MyCollectionViewCell.swift */,
 				83FB18DB29A6D7A900DFFB98 /* MainInterface.storyboard */,
+				832DA1C129AAF12E0044519E /* MyCollectionViewCell.xib */,
 				83FB18DE29A6D7AB00DFFB98 /* Assets.xcassets */,
 				83FB18E029A6D7AB00DFFB98 /* Info.plist */,
-				832DA1C029AAF12E0044519E /* MyCollectionViewCell.swift */,
 				83F48A0929EBD3EC00ACC6B9 /* APIData.xcdatamodeld */,
-				832DA1C129AAF12E0044519E /* MyCollectionViewCell.xib */,
 			);
 			path = "ChatEmotes MessagesExtension";
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 			files = (
 				83A97E7829F460E40023E7BC /* Assets.xcassets in Resources */,
 				83FB18CC29A6D7A900DFFB98 /* Assets.xcassets in Resources */,
+				ED0F7EBF29F4AD0500BB04F2 /* Secrets.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,8 +267,9 @@
 /* Begin XCBuildConfiguration section */
 		83FB18E129A6D7AB00DFFB98 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 833FAE6D29F32E5D0073F9C7 /* Secrets.xcconfig */;
+			baseConfigurationReference = ED0F7EBE29F4ABEA00BB04F2 /* Secrets.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -323,8 +330,9 @@
 		};
 		83FB18E229A6D7AB00DFFB98 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 833FAE6D29F32E5D0073F9C7 /* Secrets.xcconfig */;
+			baseConfigurationReference = ED0F7EBE29F4ABEA00BB04F2 /* Secrets.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -380,10 +388,11 @@
 		83FB18E429A6D7AB00DFFB98 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				ASSETCATALOG_COMPILER_STANDALONE_ICON_BEHAVIOR = default;
 				ASSETCATALOG_COMPILER_TARGET_STICKERS_ICON_ROLE = extension;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = "ChatEmotes MessagesExtension/ChatEmotes MessagesExtension.entitlements";
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -411,10 +420,11 @@
 		83FB18E529A6D7AB00DFFB98 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				ASSETCATALOG_COMPILER_STANDALONE_ICON_BEHAVIOR = default;
 				ASSETCATALOG_COMPILER_TARGET_STICKERS_ICON_ROLE = extension;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = "ChatEmotes MessagesExtension/ChatEmotes MessagesExtension.entitlements";
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -445,10 +455,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U7B63H6297;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ChatEmotes/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -457,6 +470,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rudel.ChatEmotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -469,10 +483,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U7B63H6297;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ChatEmotes/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -481,6 +498,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rudel.ChatEmotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
